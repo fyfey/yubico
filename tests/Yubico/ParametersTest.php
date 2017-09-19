@@ -33,4 +33,38 @@ class ParametersTest extends TestCase
 
         $this->assertEquals('a=1&b=3&c=2', $params->build());
     }
+
+    /** @test */
+    function params_are_intersectable()
+    {
+        $params = Parameters::make()
+            ->set('b', 1)
+            ->set('c', 2)
+            ->set('a', 3)
+            ->intersect('a', 'b');
+
+        $this->assertEquals('b=1&a=3', $params->build());
+    }
+
+    /** @test */
+    function params_are_removable()
+    {
+        $params = Parameters::make()
+            ->set('b', 1)
+            ->set('c', 2)
+            ->set('a', 3)
+            ->except('c');
+
+        $this->assertEquals('b=1&a=3', $params->build());
+    }
+
+    /** @test */
+    function params_are_accessible()
+    {
+        $params = Parameters::make()
+            ->set('b', 1)
+            ->set('c', 2);
+
+        $this->assertEquals(2, $params->c);
+    }
 }
