@@ -1,0 +1,19 @@
+{
+    "name": "fyfey/yubico",
+    "description": "Basic Yubikey auth library",
+    "require-dev": {
+        "phpunit/phpunit": "^6.3"
+    },
+    "authors": [
+        {
+            "name": "Stuart Fyfe",
+            "email": "stuart@fyfe.io"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Fyfey\\Yubico\\": "src/"
+        }
+    },
+    "require": {}
+}
